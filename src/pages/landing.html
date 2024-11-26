@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienestar App</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style4.css">
+</head>
+<body>
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <aside class="sidebar bg-light p-3">
+      <h3 class="text-primary">Bienestar App</h3>
+      <ul class="nav flex-column mt-4">
+        <li class="nav-item"><a class="nav-link" href="../pages/landing.html">Ejercicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="../pages/alimentacion.html">Alimentación</a></li>
+        <li class="nav-item"><a class="nav-link" href="../pages/geolocalizacion.html">Geolocalización</a></li>
+        <li class="nav-item"><a class="nav-link" href="../pages/descanso.html">Descanso</a></li>
+      </ul>
+      <div class="mt-auto"><a class="nav-link text-danger" href="/index.html">Cerrar sesión</a></div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="container-fluid p-4" style="margin-left: 260px;">
+      <!-- Header -->
+      <header class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Hola, Santiago. ¡Bienvenido!</h1>
+        <div>
+          <button class="btn btn-primary" onclick="openOverlay('restOverlay')">+ Agregar descanso</button>
+          <button class="btn btn-primary" onclick="openOverlay('dietOverlay')">+ Agregar dieta</button>
+          <button class="btn btn-primary" onclick="openOverlay('exerciseOverlay')">+ Agregar ejercicio</button>          
+        </div>
+      </header>
+
+      <!-- Banner -->
+      <div class="banner">
+        <h2>Bienvenido a Bienestar App</h2>
+        <p>Un estilo de vida saludable está al alcance de tu mano.</p>
+      </div>
+
+      <!-- Cards -->
+      <div class="row text-center my-4">
+        <div class="col-md-4">
+          <div class="card bg-info text-white p-4">Ejercicio</div>
+        </div>
+        <div class="col-md-4">
+          <div class="card bg-warning text-white p-4">Alimentación</div>
+        </div>
+        <div class="col-md-4">
+          <div class="card bg-success text-white p-4">Descanso</div>
+        </div>
+      </div>
+
+      <!-- Progress Chart -->
+      <h3>Progreso</h3>
+      <div style="max-width: 100%; margin: auto; text-align: center;">
+        <canvas id="exerciseChart" style="height: 400px; width: 1000px;"></canvas>
+
+      
+    
+  </main>
+  </div>
+
+  <!-- Overlays -->
+  <div id="exerciseOverlay" class="overlay">
+    <div class="overlay-content">
+      <h3>Agregar Ejercicio</h3>
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Tipo de ejercicio</label>
+          <select class="form-select">
+            <option>Cardio</option>
+            <option>Yoga</option>
+            <option>Fuerza</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary w-100" onclick="closeOverlay('exerciseOverlay')">Agregar</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="dietOverlay" class="overlay">
+    <div class="overlay-content">
+      <h3>Agregar Dieta</h3>
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Tipo de comida</label>
+          <select class="form-select">
+            <option>Desayuno</option>
+            <option>Almuerzo</option>
+            <option>Cena</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary w-100" onclick="closeOverlay('dietOverlay')">Agregar</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="restOverlay" class="overlay">
+    <div class="overlay-content">
+      <h3>Agregar Descanso</h3>
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Calidad de sueño</label>
+          <select class="form-select">
+            <option>Buena</option>
+            <option>Regular</option>
+            <option>Mala</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary w-100" onclick="closeOverlay('restOverlay')">Agregar</button>
+      </form>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/main.js"></script>
+
+
+<script>
+
+window.onload = function () {
+            const ctx = document.getElementById('exerciseChart').getContext('2d');
+            const exerciseChart = new Chart(ctx, {
+                type: 'bar', // Tipo de gráfico: barra
+                data: {
+                    labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'], // Días de la semana
+                    datasets: [{
+                        label: '% Cumplimiento de Ejercicio',
+                        data: [75, 50, 90, 80, 60, 40, 95], // Datos ficticios de cumplimiento
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.6)', // Verde claro
+                            'rgba(54, 162, 235, 0.6)', // Azul claro
+                            'rgba(255, 206, 86, 0.6)', // Amarillo claro
+                            'rgba(153, 102, 255, 0.6)', // Morado claro
+                            'rgba(255, 99, 132, 0.6)', // Rojo claro
+                            'rgba(201, 203, 207, 0.6)', // Gris claro
+                            'rgba(255, 159, 64, 0.6)'  // Naranja claro
+                        ],
+                        borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(201, 203, 207, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top', // Posición de la leyenda
+                        },
+                        title: {
+                            display: true,
+                            text: 'Cumplimiento de Ejercicio Semanal' // Título del gráfico
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true, // Escala comienza en 0
+                            max: 100, // Máximo en 100%
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%'; // Muestra los valores como porcentajes
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Porcentaje (%)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Días de la Semana'
+                            }
+                        }
+                    }
+                }
+            });
+        };
+</script>
+
+</body>
+</html>

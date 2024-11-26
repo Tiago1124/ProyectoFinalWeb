@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <title>Bienestar App - Inicia sesión</title>
+  <link rel="stylesheet" href="../css/style2.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="image-section">
+      <img src="../images/image-from-rawpixel-id-15307795-png.png" alt="Fitness woman with dumbbell">
+    </div>
+    <div class="form-section">
+      <h1><b>Inicia sesión</b></h1>
+      <p>Ingresa tus datos para iniciar sesión.</p>
+      <form action="#">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="info@example.com" required>
+
+        <label for="password">Contraseña</label>
+        <div class="password-container">
+          <input type="password" id="password" placeholder="Contraseña" required>
+          <button type="button" class="toggle-password"></button>
+        </div>
+
+        <div class="options">
+          <label>
+            <input type="checkbox" name="remember"> Mantener sesión iniciada
+          </label>
+          <a href="#">¿Olvidaste la contraseña?</a>
+        </div>
+
+        <button id="login-button" type="submit" class="btn-primary">Inicia sesión</button>
+        <p>¿No tienes cuenta? <a href="../pages/registro.html">Regístrate</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+
+<script src="../js/main.js"></script>
+</html>
