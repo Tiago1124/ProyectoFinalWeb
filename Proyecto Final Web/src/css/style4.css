@@ -1,0 +1,225 @@
+
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  background-color: #f8f9fa; /* Color claro */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para efecto flotante */
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Para alinear el contenido verticalmente */
+  justify-content: space-between; /* Para mover cerrar sesión hacia abajo */
+}
+
+.sidebar h3 {
+  font-size: 1.5rem;
+  color: #007bff; /* Azul primario */
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.sidebar .nav {
+  flex-grow: 1; /* Deja que la lista ocupe el espacio disponible */
+}
+
+.sidebar .nav-link {
+  display: block;
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: #333; /* Texto oscuro */
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #e9ecef; /* Fondo más claro al pasar el cursor */
+  color: #007bff; /* Azul en hover */
+}
+
+.sidebar .nav-link.active {
+  background-color: #007bff; /* Fondo azul para el enlace activo */
+  color: white; /* Texto blanco para contraste */
+}
+
+/* Cerrar sesión */
+.sidebar .logout {
+  text-align: center;
+  font-size: 1rem;
+  color: #dc3545; /* Rojo */
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-top: auto; /* Empuja el botón hacia abajo */
+}
+
+.sidebar .logout:hover {
+  background-color: #f8d7da; /* Rojo claro en hover */
+  color: #721c24; /* Texto más oscuro */
+}
+
+
+/* Estilos generales */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9; /* Fondo gris claro */
+  color: #333; /* Texto oscuro */
+}
+
+/* Encabezado */
+header {
+  background-color: #007bff; /* Azul primario */
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+header button {
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+header button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Efecto de hover en botones */
+}
+
+/* Banner */
+
+.banner {
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
+  overflow: hidden; /* Asegura que el pseudo-elemento no se salga del banner */
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/risen-wang-20jX9b35r_M-unsplash.jpg') no-repeat center center;
+  background-size: cover;
+  filter: blur(7px); /* Ajusta el nivel de desenfoque */
+  z-index: -1; /* Asegura que quede detrás del texto */
+}
+
+.banner h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  position: relative; /* Asegura que se mantenga por encima del fondo */
+  z-index: 1;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  margin: 0;
+  position: relative; /* Asegura que se mantenga por encima del fondo */
+  z-index: 1;
+}
+
+
+
+/* Tarjetas */
+.card {
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Gráficos */
+canvas {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Overlays */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+}
+
+.overlay-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.overlay-content .form-select {
+  border-radius: 5px;
+}
+
+.overlay-content .btn {
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+}
+
+.overlay-content .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .banner {
+    padding: 2rem;
+  }
+
+  .card {
+    font-size: 1.2rem;
+    padding: 15px;
+  }
+}
+

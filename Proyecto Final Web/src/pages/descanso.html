@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descanso</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style4.css">
+
+
+<body>
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <aside class="sidebar bg-light p-3">
+    <h3 class="text-primary">Bienestar App</h3>
+    <ul class="nav flex-column mt-4">
+      <li class="nav-item"><a class="nav-link" href="../pages/landing.html">Ejercicios</a></li>
+      <li class="nav-item"><a class="nav-link" href="../pages/alimentacion.html">Alimentación</a></li>
+      <li class="nav-item"><a class="nav-link" href="../pages/geolocalizacion.html">Geolocalización</a></li>
+      <li class="nav-item"><a class="nav-link" href="../pages/descanso.html">Descanso</a></li>
+        </ul>
+        <div class="mt-auto"><a class="nav-link text-danger" href="index.html">Cerrar sesión</a></div>
+    </aside>
+    
+     <!-- Main Content -->
+     <main class="container-fluid p-4" style="margin-left: 260px;">
+        <!-- Header -->
+        <header class="d-flex justify-content-between align-items-center mb-4">
+          <h1>Hola, Santiago. ¡Bienvenido!</h1>
+          <div>
+            <button class="btn btn-primary" onclick="openOverlay('restOverlay')">+ Agregar descanso</button>
+            <button class="btn btn-primary" onclick="openOverlay('dietOverlay')">+ Agregar dieta</button>
+            <button class="btn btn-primary" onclick="openOverlay('exerciseOverlay')">+ Agregar ejercicio</button>          
+          </div>
+        </header>
+
+
+        <!-- Overlays -->
+  <div id="exerciseOverlay" class="overlay">
+    <div class="overlay-content">
+      <h3>Agregar Ejercicio</h3>
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Tipo de ejercicio</label>
+          <select class="form-select">
+            <option>Cardio</option>
+            <option>Yoga</option>
+            <option>Fuerza</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary w-100" onclick="closeOverlay('exerciseOverlay')">Agregar</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="dietOverlay" class="overlay">
+    <div class="overlay-content">
+      <h3>Agregar Dieta</h3>
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Tipo de comida</label>
+          <select class="form-select">
+            <option>Desayuno</option>
+            <option>Almuerzo</option>
+            <option>Cena</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary w-100" onclick="closeOverlay('dietOverlay')">Agregar</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="restOverlay" class="overlay">
+    <div class="overlay-content">
+      <h3>Agregar Descanso</h3>
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Calidad de sueño</label>
+          <select class="form-select">
+            <option>Buena</option>
+            <option>Regular</option>
+            <option>Mala</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary w-100" onclick="closeOverlay('restOverlay')">Agregar</button>
+      </form>
+    </div>
+  </div>
+
+
+  <script src="../js/main.js">
+
+
+  </script>
+</body>
+</html>
